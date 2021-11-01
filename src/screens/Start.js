@@ -27,6 +27,12 @@ const Start = ({navigation}) => {
                         px={20}
                         py={5}
                     ><Text style={styles.startButtonText}>Sign Up</Text></Button>
+                    <Button 
+                        colorScheme="secondary" 
+                        onPress={() => navigation.navigate('SignUp')}
+                        px={20}
+                        py={5}
+                    ><Text style={styles.startButtonText}>Test</Text></Button>
                 </View>
             </View>
         </ScrollView>
