@@ -6,7 +6,7 @@ import { styles } from '../styles/styles'
 const Start = ({navigation}) => {
     return (
         <ScrollView contentContainerStyle={{flexGrow: 1}}>
-            <View style={styles.startContainer}>
+            <View style={styles.container}>
                 <View style={styles.startButtonContainer}>
                     <Image
                         source={require('../assets/images/logo.jpg')}
@@ -17,6 +17,8 @@ const Start = ({navigation}) => {
                     <Button 
                         colorScheme="primary" 
                         onPress={() => navigation.navigate('SignIn')}
+                        style={styles.roundedCornerBtn}
+                        width={'80%'}
                         px={20}
                         py={5}
                         mb={2}
@@ -24,15 +26,11 @@ const Start = ({navigation}) => {
                     <Button 
                         colorScheme="secondary" 
                         onPress={() => navigation.navigate('SignUp')}
+                        style={styles.roundedCornerBtn}
+                        width={'80%'}
                         px={20}
                         py={5}
                     ><Text style={styles.startButtonText}>Sign Up</Text></Button>
-                    <Button 
-                        colorScheme="secondary" 
-                        onPress={() => navigation.navigate('SignUp')}
-                        px={20}
-                        py={5}
-                    ><Text style={styles.startButtonText}>Test</Text></Button>
                 </View>
             </View>
         </ScrollView>
