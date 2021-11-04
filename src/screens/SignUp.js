@@ -22,7 +22,7 @@ const SignUp = ({navigation}) => {
         <ScrollView contentContainerStyle={{flex: 1}}>
             <View style={styles.container}>
                 <View style={[styles.p1, styles.mT2]}>
-                    <Text style={[styles.textBolds, {fontSize: 35}]}>Let's Get Started</Text>
+                    <Text style={[styles.textBold, {fontSize: 35}]}>Let's Get Started</Text>
                     <Text>Sign up with Social or fill the form to continue</Text>
                 </View>
                 <View style={[styles.flexRow, styles.p1, styles.pB2]} >

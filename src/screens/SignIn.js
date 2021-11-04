@@ -1,11 +1,85 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React, { useState } from 'react'
+import { View, Text, ScrollView } from 'react-native'
+import IonicIcon from 'react-native-vector-icons/Ionicons';
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
+import { colors, styles } from '../styles/styles'
+import { Button, Input } from 'native-base';
 
 const SignIn = () => {
+
+    const [show, setShow] = useState(false);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handlePass = () => setShow(!show)
+
+    const submitForm = () => {
+        console.log(email, password);
+    }
+
     return (
-        <View>
-            <Text>Sign In</Text>
-        </View>
+        <ScrollView contentContainerStyle={{flex: 1}}>
+            <View style={styles.container}>
+                <View style={[styles.p1, styles.mT2]}>
+                    <Text style={[styles.textBold, {fontSize: 35}]}>Let's Get Started</Text>
+                    <Text>Sign up with Social or fill the form to continue</Text>
+                </View>
+                <View style={[styles.flexRow, styles.p1, styles.pB2]} >
+                    <View style={[styles.iconCircle, styles.mR1]}>
+                        <FontAwesomeIcon name="facebook" size={30} color={colors.blue}/>
+                    </View>
+                    <View style={styles.iconCircle} >
+                        <FontAwesomeIcon name="google" size={30} color={colors.red}/>
+                    </View>
+                </View>
+                <View style={{borderColor: 'black', borderWidth: 0.5}}></View>
+                <View style={[styles.p1, styles.pY2, styles.alignCenter]}>
+                    <Input
+                        p={4}
+                        mb={5}
+                        w={{base: "90%", md: "25%",}}
+                        style={{fontSize: 15}}
+                        InputLeftElement={
+                            <IonicIcon name="mail" size={40} style={styles.mL1} />
+                        }
+                        placeholder="Email"
+                        variant="underlined"
+                        name="email"
+                        onChangeText={value => setEmail(value)}
+                    />
+                    <Input
+                        p={4}
+                        w={{base: "90%", md: "25%",}}
+                        style={{fontSize: 15}}
+                        placeholder="Password"
+                        variant="underlined"
+                        name="password"
+                        type={show ? "text" : "password"}
+                        overflow="visible"
+                        InputLeftElement={
+                            <FontAwesomeIcon name="lock" size={40} style={styles.mL1} />
+                        }
+                        InputRightElement={
+                            <IonicIcon 
+                                name={show ? "eye" : 'eye-off'} 
+                                size={40} 
+                                onPress={handlePass}
+                                style={styles.mR1}/>
+                        }
+                        onChangeText={value => setPassword(value)}
+                    />
+                </View>
+                <View style={styles.mT3}>
+                    <Button 
+                        colorScheme="secondary" 
+                        onPress={() => submitForm()}
+                        style={styles.roundedCornerBtn}
+                        px={20}
+                        py={5}
+                    ><Text style={styles.startButtonText}>Sign In</Text></Button>
+                </View>
+            </View>
+        </ScrollView>
     )
 }
 
